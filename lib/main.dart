@@ -4,10 +4,21 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:cecom_flutter/first.dart';
+import 'package:cecom_flutter/first.dart' as first;
+import 'package:cecom_flutter/second.dart' as second;
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    title: 'Named routes Demo',
+    // "/"을 앱이 시작하게 될 route로 지정합니다. 본 예제에서는 FirstScreen 위젯이 첫 번째 페이지가
+    // 될 것입니다.
+    initialRoute: '/',
+    routes: {
+      '/': (context) => MyApp(),
+      '/first': (context) => first.FirstPage(),
+      '/second': (context) => second.SecondPage(),
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -57,12 +68,10 @@ class MyApp extends StatelessWidget {
 
     Color color = Theme.of(context).primaryColor;
 
-    return MaterialApp(
-      title: 'CECOM Flutter Sans',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.deepPurple,
-          title: const Text('CECOM Flutter layout Sans'),
+          title: const Text('CECOM Flutter layout Sans!'),
         ),
         body: ListView(
           children: [
@@ -80,7 +89,7 @@ class MyApp extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(
-                          context,'package:cecom_flutter/first.dart');
+                          context,'/first');
                       },
                       child: Text('sans1'),
                       style:ButtonStyle(
@@ -91,7 +100,10 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () {print('샌즈!!');},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,'/second');
+                      },
                     child: Text('sans2'),
                     style:ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
@@ -121,7 +133,6 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 
