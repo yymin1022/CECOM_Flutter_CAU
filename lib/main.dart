@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:cecom_flutter/first.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -56,9 +58,10 @@ class MyApp extends StatelessWidget {
     Color color = Theme.of(context).primaryColor;
 
     return MaterialApp(
-      title: 'CECOM Flutter layout Sans',
+      title: 'CECOM Flutter Sans',
       home: Scaffold(
         appBar: AppBar(
+            backgroundColor: Colors.deepPurple,
           title: const Text('CECOM Flutter layout Sans'),
         ),
         body: ListView(
@@ -73,20 +76,25 @@ class MyApp extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                    onPressed: () {print('와!');},
-                    child: Text('sans1'),
-                    style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
-                      overlayColor: MaterialStateProperty.all(Colors.black),
-                    )
+                GestureDetector(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,'package:cecom_flutter/first.dart');
+                      },
+                      child: Text('sans1'),
+                      style:ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
+                        overlayColor: MaterialStateProperty.all(Colors.black),
+                      )
+                  ),
                 ),
                 ElevatedButton(
                     onPressed: () {print('샌즈!!');},
                     child: Text('sans2'),
                     style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
                       padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
                       overlayColor: MaterialStateProperty.all(Colors.black),
                     )
@@ -95,7 +103,7 @@ class MyApp extends StatelessWidget {
                     onPressed: () {print('아시는구나!');},
                     child: Text('sans3'),
                     style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
                       padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
                       overlayColor: MaterialStateProperty.all(Colors.black),
                     )
@@ -104,7 +112,7 @@ class MyApp extends StatelessWidget {
                     onPressed: () {print('이.거겁.나.어.렵.습.니.다');},
                     child: Text('sans4'),
                     style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
                       padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
                       overlayColor: MaterialStateProperty.all(Colors.black),
                     )
