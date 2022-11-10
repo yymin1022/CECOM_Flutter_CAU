@@ -1,15 +1,18 @@
 // Copyright 2018 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+//신지연님 page
 
 import 'package:flutter/material.dart';
+import 'package:cecom_flutter/shared/menu_bottom.dart';
 
-class FirstPage extends StatelessWidget {
+class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sans1"),),
+      appBar: AppBar(title: Text("Sans3"),),
       body: Container(child: Text("와!"),),
+      bottomNavigationBar: MenuBottom(),
     );
 
   }
