@@ -4,8 +4,13 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:cecom_flutter/first.dart' as first;
-import 'package:cecom_flutter/second.dart' as second;
+import 'package:cecom_flutter/shared/menu_bottom.dart';
+
+import 'package:cecom_flutter/pages/first.dart' as first;
+import 'package:cecom_flutter/pages/second.dart' as second;
+import 'package:cecom_flutter/pages/third.dart' as third;
+import 'package:cecom_flutter/pages/fourth.dart' as fourth;
+
 
 void main() {
   runApp(MaterialApp(
@@ -17,6 +22,8 @@ void main() {
       '/': (context) => MyApp(),
       '/first': (context) => first.FirstPage(),
       '/second': (context) => second.SecondPage(),
+      '/third': (context) => third.ThirdPage(),
+      '/fourth': (context) => fourth.FourthPage(),
     },
   ));
 }
@@ -26,9 +33,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    'Sans',
+                    'CAU FLUTTER',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -60,104 +64,34 @@ class MyApp extends StatelessWidget {
 
           Icon(
             Icons.star,
-            color: Colors.red[500],
+            color: Colors.deepPurple[500],
           ),
         ],
       ),
     );
 
-    Color color = Theme.of(context).primaryColor;
+
 
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-          title: const Text('CECOM Flutter layout Sans!'),
-        ),
-        body: ListView(
-          children: [
-            Image.asset(
-              'image/sans.jpg',
-              width:600,
-              height:440,
-              fit: BoxFit.cover,
-            ),
-            titleSection,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,'/first');
-                      },
-                      child: Text('sans1'),
-                      style:ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                        padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
-                        overlayColor: MaterialStateProperty.all(Colors.black),
-                      )
-                  ),
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,'/second');
-                      },
-                    child: Text('sans2'),
-                    style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
-                      overlayColor: MaterialStateProperty.all(Colors.black),
-                    )
-                ),
-                ElevatedButton(
-                    onPressed: () {print('아시는구나!');},
-                    child: Text('sans3'),
-                    style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
-                      overlayColor: MaterialStateProperty.all(Colors.black),
-                    )
-                ),
-                ElevatedButton(
-                    onPressed: () {print('이.거겁.나.어.렵.습.니.다');},
-                    child: Text('sans4'),
-                    style:ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(10.0)),
-                      overlayColor: MaterialStateProperty.all(Colors.black),
-                    )
-                )
-              ]
-            ),
-          ],
-        ),
-    );
-  }
-
-  Column _buildButtonColumn(Color color,IconData icon, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top:8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: const Text('CECOM Flutter APP'),
+      ),
+      body: ListView(
+        children: [
+          Image.asset(
+            'lib/images/puang.jpg',
+            width: 600,
+            height: 440,
+            fit: BoxFit.cover,
           ),
-        ),
-      ],
+          titleSection,
+        ],
+      ),
+      bottomNavigationBar: MenuBottom(), //MenuBottom
     );
   }
 }
-
 
 
 
