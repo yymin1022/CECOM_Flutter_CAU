@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 //박지우님page
 import 'package:flutter/material.dart';
-import 'package:cecom_flutter/shared/menu_bottom.dart';
 
 class SecondPage extends StatelessWidget {
   @override
@@ -11,7 +10,6 @@ class SecondPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Sans2"),),
       body: Container(child: Text("와 SANSANSANS!"),),
-      bottomNavigationBar: MenuBottom(),
     );
 
   }

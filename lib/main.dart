@@ -1,27 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:cecom_flutter/shared/menu_bottom.dart';
-
+import 'package:cecom_flutter/pages/MainPage.dart' as MainPage;
 import 'package:cecom_flutter/pages/first.dart' as first;
 import 'package:cecom_flutter/pages/second.dart' as second;
 import 'package:cecom_flutter/pages/third.dart' as third;
 import 'package:cecom_flutter/pages/fourth.dart' as fourth;
 
-
-void main() {
-  runApp(MaterialApp(
-    title: 'Named routes Demo',
-    // "/"을 앱이 시작하게 될 route로 지정합니다. 본 예제에서는 FirstScreen 위젯이 첫 번째 페이지가
-    // 될 것입니다.
-    initialRoute: '/',
-    routes: {
-      '/': (context) => MyApp(),
-      '/first': (context) => first.FirstPage(),
-      '/second': (context) => second.SecondPage(),
-      '/third': (context) => third.ThirdPage(),
-      '/fourth': (context) => fourth.FourthPage(),
-    },
-  ));
+void main(){
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,63 +15,57 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Container(
-      padding: const EdgeInsets.all(32),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    'CAU FLUTTER',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                  style: TextStyle(
-                    color: Colors.grey[500],
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          Icon(
-            Icons.star,
-            color: Colors.deepPurple[500],
-          ),
-        ],
-      ),
-    );
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        title: const Text('CECOM Flutter APP'),
-      ),
-      body: ListView(
-        children: [
-          Image.asset(
-            'lib/images/puang.jpg',
-            width: 600,
-            height: 440,
-            fit: BoxFit.cover,
-          ),
-          titleSection,
-        ],
-      ),
-      bottomNavigationBar: MenuBottom(), //MenuBottom
+    return const MaterialApp(
+      home: NavigateBase()
     );
   }
 }
 
+class NavigateBase extends StatefulWidget {
+  const NavigateBase({super.key});
 
+  @override
+  State<StatefulWidget> createState() {
+    return NavigateBaseState();
+  }
+}
 
+class NavigateBaseState extends State<NavigateBase> {
+  int curViewIndex = 0;
+  final List<Widget> tabViewList = <Widget>[
+    MainPage.MainPage(),
+    first.FirstPage(),
+    second.SecondPage(),
+    third.ThirdPage(),
+    fourth.FourthPage()
+  ];
 
+  void onItemTapped(int idx){
+    curViewIndex = idx;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: tabViewList.elementAt(curViewIndex)
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.deepPurple,
+        currentIndex: curViewIndex,
+        onTap: onItemTapped,
+
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "박상우"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "박지우"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "신지연"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "장민석"),
+        ],
+      ) //MenuBottom
+    );
+  }
+}

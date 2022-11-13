@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 //박상우님 page
 import 'package:flutter/material.dart';
-import 'package:cecom_flutter/shared/menu_bottom.dart';
 
 class FirstPage extends StatelessWidget {
   @override
@@ -11,7 +10,6 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Sans1"),),
       body: Container(child: Text("와!"),),
-      bottomNavigationBar: MenuBottom(),
     );
 
   }

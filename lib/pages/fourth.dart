@@ -3,15 +3,13 @@
 // found in the LICENSE file.
 // 장민석님 page
 import 'package:flutter/material.dart';
-import 'package:cecom_flutter/shared/menu_bottom.dart';
+
 class FourthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Sans4"),),
       body: Container(child: Text("와!"),),
-      bottomNavigationBar: MenuBottom(),
     );
-
   }
 }

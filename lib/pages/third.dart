@@ -4,7 +4,6 @@
 //신지연님 page
 
 import 'package:flutter/material.dart';
-import 'package:cecom_flutter/shared/menu_bottom.dart';
 
 class ThirdPage extends StatelessWidget {
   @override
@@ -12,7 +11,6 @@ class ThirdPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Sans3"),),
       body: Container(child: Text("와!"),),
-      bottomNavigationBar: MenuBottom(),
     );
 
   }
