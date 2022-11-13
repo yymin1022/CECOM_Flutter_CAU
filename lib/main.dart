@@ -7,11 +7,11 @@ import 'package:cecom_flutter/pages/NoticePage.dart' as NoticePage;
 import 'package:cecom_flutter/pages/LibraryPage.dart' as LibraryPage;
 
 void main(){
-  runApp(const MyApp());
+  runApp(const CECOMApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CECOMApp extends StatelessWidget {
+  const CECOMApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,9 @@ class NavigateBaseState extends State<NavigateBase> {
   ];
 
   void onItemTapped(int idx){
-    curViewIndex = idx;
+    setState(() {
+      curViewIndex = idx;
+    });
   }
 
   @override
@@ -55,8 +57,6 @@ class NavigateBaseState extends State<NavigateBase> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         selectedItemColor: Colors.deepPurple,
-        currentIndex: curViewIndex,
-        onTap: onItemTapped,
 
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -65,6 +65,9 @@ class NavigateBaseState extends State<NavigateBase> {
           BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "신지연"),
           BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "장민석"),
         ],
+
+        currentIndex: curViewIndex,
+        onTap: onItemTapped,
       ) //MenuBottom
     );
   }
