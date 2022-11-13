@@ -1,10 +1,7 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 // 장민석님 page
 import 'package:flutter/material.dart';
 
-class FourthPage extends StatelessWidget {
+class LibraryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

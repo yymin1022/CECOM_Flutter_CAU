@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:cecom_flutter/pages/MainPage.dart' as MainPage;
-import 'package:cecom_flutter/pages/first.dart' as first;
-import 'package:cecom_flutter/pages/second.dart' as second;
-import 'package:cecom_flutter/pages/third.dart' as third;
-import 'package:cecom_flutter/pages/fourth.dart' as fourth;
+import 'package:cecom_flutter/pages/MealPage.dart' as MealPage;
+import 'package:cecom_flutter/pages/SchedulePage.dart' as SchedulePage;
+import 'package:cecom_flutter/pages/NoticePage.dart' as NoticePage;
+import 'package:cecom_flutter/pages/LibraryPage.dart' as LibraryPage;
 
 void main(){
   runApp(const MyApp());
@@ -34,10 +34,10 @@ class NavigateBaseState extends State<NavigateBase> {
   int curViewIndex = 0;
   final List<Widget> tabViewList = <Widget>[
     MainPage.MainPage(),
-    first.FirstPage(),
-    second.SecondPage(),
-    third.ThirdPage(),
-    fourth.FourthPage()
+    MealPage.MealPage(),
+    SchedulePage.SchedulePage(),
+    NoticePage.NoticePage(),
+    LibraryPage.LibraryPage()
   ];
 
   void onItemTapped(int idx){
