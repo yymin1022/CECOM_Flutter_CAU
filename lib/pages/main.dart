@@ -1,32 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:cecom_flutter/shared/menu_bottom.dart';
-
-import 'package:cecom_flutter/pages/first.dart' as first;
-import 'package:cecom_flutter/pages/second.dart' as second;
-import 'package:cecom_flutter/pages/third.dart' as third;
-import 'package:cecom_flutter/pages/fourth.dart' as fourth;
-
-
-void main() {
-  runApp(MaterialApp(
-    title: 'Named routes Demo',
-    // "/"을 앱이 시작하게 될 route로 지정합니다. 본 예제에서는 FirstScreen 위젯이 첫 번째 페이지가
-    // 될 것입니다.
-    initialRoute: '/',
-    routes: {
-      '/': (context) => MyApp(),
-      '/first': (context) => first.FirstPage(),
-      '/second': (context) => second.SecondPage(),
-      '/third': (context) => third.ThirdPage(),
-      '/fourth': (context) => fourth.FourthPage(),
-    },
-  ));
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -80,12 +54,7 @@ class MyApp extends StatelessWidget {
           ),
           titleSection,
         ],
-      ),
-      bottomNavigationBar: MenuBottom(), //MenuBottom
+      ),//MenuBottom
     );
   }
 }
-
-
-
-
