@@ -7,7 +7,7 @@ import 'package:cecom_flutter/pages/NoticePage.dart' as NoticePage;
 import 'package:cecom_flutter/pages/LibraryPage.dart' as LibraryPage;
 
 void main() {
-  runApp(const CECOMApp());
+  runApp(MaterialApp(home: const CECOMApp()));
 }
 
 class CECOMApp extends StatelessWidget {
