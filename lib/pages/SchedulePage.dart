@@ -76,7 +76,9 @@ class SchedulePage extends StatelessWidget {
         title: const Text("CECOM Flutter APP"),
       ),
       body: Container(
-        child: TopSection,
+        child: Column(
+          children: [TopSection, BottomSection],
+        ),
       ),
     );
   }
