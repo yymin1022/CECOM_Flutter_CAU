@@ -7,7 +7,7 @@ import 'package:cecom_flutter/pages/NoticePage.dart' as NoticePage;
 import 'package:cecom_flutter/pages/LibraryPage.dart' as LibraryPage;
 
 void main() {
-  runApp(MaterialApp(home: const CECOMApp()));
+  runApp(const MaterialApp(home: CECOMApp()));
 }
 
 class CECOMApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class CECOMApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: NavigateBase());
+    return const NavigateBase();
   }
 }
 
