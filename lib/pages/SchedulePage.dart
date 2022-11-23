@@ -19,7 +19,7 @@ class SchedulePage extends StatelessWidget {
                       Icon(
                         Icons.star,
                         color: Colors.deepPurple[500],
-                    ),
+                      ),
                       Text("Monthly Schedule Page",
                         style: TextStyle(
                           fontSize: 17, fontWeight: FontWeight.bold,
