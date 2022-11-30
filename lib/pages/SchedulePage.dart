@@ -1,6 +1,6 @@
 //박지우님 page
 import "package:flutter/material.dart";
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class SchedulePage extends StatelessWidget {
@@ -38,7 +38,7 @@ class SchedulePage extends StatelessWidget {
     );
 
     Widget SetBox = Container(
-        padding: const EdgeInsets.only(left:20, right:20, top:8, bottom:20),
+        padding: const EdgeInsets.only(left:20, right:20, top:20, bottom:20),
         height: 100, width:300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -46,8 +46,31 @@ class SchedulePage extends StatelessWidget {
         )
     );
 
-    Widget SetLine = Container(padding: const EdgeInsets.only(left:20, right:20, top:20, bottom:20), width: 500,
+    Widget SetLine = Container(
+        padding: const EdgeInsets.only(left:20, right:20, top:30, bottom:10), width: 500,
         child: Divider(color: Colors.deepPurple, thickness: 2.0));
+
+
+    Widget CalenderContainer = Container(
+      padding: const EdgeInsets.only(left:20, right:20, top:10, bottom:20),
+      child:       TableCalendar(
+        firstDay: DateTime.utc(2019, 10, 22),
+        lastDay: DateTime.utc(2030, 10, 22),
+        focusedDay: DateTime.now(),
+
+        headerStyle: HeaderStyle(
+          titleCentered: true,
+          titleTextFormatter: (date, locale) =>
+              DateFormat.yMMMMd(locale).format(date),
+          formatButtonVisible: false,
+          titleTextStyle: const TextStyle(
+            fontSize: 20.0,
+            color: Colors.deepPurple,
+          ),
+        ),
+      ),
+    );
+
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +79,7 @@ class SchedulePage extends StatelessWidget {
       ),
       body: Container(
         child: Column(
-          children: [TopSection, SetBox, SetLine],
+          children: [TopSection, SetBox, SetLine, CalenderContainer],
         ),
       ),
     );
