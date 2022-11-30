@@ -1,5 +1,7 @@
 //박지우님 page
 import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class SchedulePage extends StatelessWidget {
   @override
@@ -35,37 +37,6 @@ class SchedulePage extends StatelessWidget {
       ),
     );
 
-    Widget BottomSection = Container(
-      padding: const EdgeInsets.only(left:20, right:20, top:8, bottom:8),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Row(
-                    children:[
-                      Icon(
-                        Icons.star,
-                        color: Colors.deepPurple[500],
-                      ),
-                      Text("Academic Conference",
-                        style: TextStyle(
-                          fontSize: 17, fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-
     Widget SetBox = Container(
         padding: const EdgeInsets.only(left:20, right:20, top:8, bottom:20),
         height: 100, width:300,
@@ -85,7 +56,7 @@ class SchedulePage extends StatelessWidget {
       ),
       body: Container(
         child: Column(
-          children: [TopSection, SetBox, SetLine, BottomSection, SetBox],
+          children: [TopSection, SetBox, SetLine],
         ),
       ),
     );
